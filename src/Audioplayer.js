@@ -1,32 +1,48 @@
 import react, { Component } from "react"
 import song from "./audio.mp3"
 import ReactDOM from "react-dom"
+import WaveSurfer from "wavesurfer.js"
+import { WaveformContianer, Wave, PlayButton } from "./Waveformstyled"
+import { createContext } from "react"
 
 class Audioplayer extends Component {
     state = {
-        audio: new Audio(song),
-        isPlaying: false,
+        Playing: false,
     }
-    playPause = () => {
-        let isPlaying = this.state.isPlaying
 
-        if (isPlaying) {
-            this.state.audio.pause()
-        } else {
-            this.state.audio.play()
-        }
-        this.setState({ isPlaying: !isPlaying })
+    componentDidMount() {
+        const track = document.querySelector("#track")
+
+        this.waveform = WaveSurfer.create({
+            barWidth: 3,
+            cursorWidth: 1,
+            container: "#waveform",
+            backend: "WebAudio",
+            height: 80,
+            progressColor: "#2D5BFF",
+            responsive: true,
+            waveColor: "#EFEFEF",
+            cursorColor: "transparent",
+        })
+
+        this.waveform.load(track)
+    }
+
+    handlePlay = () => {
+        this.setState({ playing: !this.state.playing })
+        this.waveform.playPause()
     }
 
     render() {
         return (
             <div className="Audioplayer">
-                <p>
-                    {this.state.isPlaying
-                        ? "song is playing"
-                        : "song is paused"}
-                </p>
-                <button onClick={this.playPause}>Play | Pause</button>
+                <WaveformContianer>
+                    <PlayButton onClick={this.handlePlay}>
+                        {!this.state.playing ? "Play" : "Pause"}
+                    </PlayButton>
+                    <Wave id="waveform" />
+                    <audio id="track" src={song} />
+                </WaveformContianer>
             </div>
         )
     }
