@@ -21,13 +21,14 @@ export const PlayButton = styled.button`
     align-items: center;
     width: 60px;
     height: 60px;
-    background: #efefef;
+    textcolor: white;
+    background: #7303c0;
     border-radius: 50%;
     border: none;
     outline: none;
     cursor: pointer;
     padding-bottom: 3px;
     &:hover {
-        background: #ddd;
+        background: #004ff9;
     }
 `

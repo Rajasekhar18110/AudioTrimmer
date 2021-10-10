@@ -4,6 +4,7 @@ import ReactDOM from "react-dom"
 import WaveSurfer from "wavesurfer.js"
 import { WaveformContianer, Wave, PlayButton } from "./Waveformstyled"
 import { createContext } from "react"
+import "./Audioplayer.css"
 
 class Audioplayer extends Component {
     state = {
