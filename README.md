@@ -10,6 +10,4 @@ react based website to play the audio and trim the audio
 
 4. then automatically browser will show my page at localhost:3000
 
-Note: I have not implemented Trimming functionality of this assignment. I just played the audio in waveform.
-
 Thankyou..
