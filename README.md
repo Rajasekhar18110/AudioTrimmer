@@ -10,4 +10,10 @@ react based website to play the audio and trim the audio
 
 4.Then automatically browser will show my page at localhost:3000
 
+the below image shows home page:
+![Alt text](img/homepage.png?raw=true "Title")
+
+the below image shows audio player page:
+![Alt text](img/audiopage.png?raw=true "Title")
+
 Thankyou..
